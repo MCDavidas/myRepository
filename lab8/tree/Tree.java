@@ -32,27 +32,26 @@ public class Tree<T extends Comparable<T>>
         if (root == null)
             root = new Node(curr);
         else
+            add(root, null, curr);
+    }
+
+    private void add(Node v, Node prev, T curr)
+    {
+        if (v == null)
         {
-            Node parent = root;
-            Node v = root;
-
-            while (v != null)
-            {
-                parent = v;
-                if (parent.value.compareTo(curr) > 0)
-                    v = parent.left;
-                else
-                    v = parent.right;
-            }
-
-            v = new Node(curr);
-            v.parent = parent;
-
-            if (parent.value.compareTo(curr) > 0)
-                parent.left = v;
+            Node u = new Node(curr);
+            if (prev.value.compareTo(curr) > 0)
+                prev.left = u;
             else
-                parent.right = v;
+                prev.right = u;
+            u.parent = prev;
+            return;
         }
+
+        if (v.value.compareTo(curr) > 0)
+            add(v.left, v, curr);
+        else
+            add(v.right, v, curr);
     }
 
     public boolean find(T curr)
@@ -103,8 +102,8 @@ public class Tree<T extends Comparable<T>>
         if (v == null)
             return;
 
-        rootLeftRight(v.left);
-        rootLeftRight(v.right);
+        leftRightRoot(v.left);
+        leftRightRoot(v.right);
         System.out.print(v.value + " ");
     }
 
@@ -118,8 +117,8 @@ public class Tree<T extends Comparable<T>>
         if (v == null)
             return;
 
-        rootLeftRight(v.left);
+        leftRootRight(v.left);
         System.out.print(v.value + " ");
-        rootLeftRight(v.right);
+        leftRootRight(v.right);
     }
 }

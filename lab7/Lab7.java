@@ -4,20 +4,26 @@ import java.lang.Math.*;
 
 public class Lab7
 {
-    public static void inversion(double[][] A, int n)
+    public static void inversion(double[][] A)
     {
-        double temp;
+        int n = A.length;
         double[][] E = new double [n][n];
 
         for (int i=0; i<n; i++)
             for (int j=0; j<n; j++)
             {
                 E[i][j] = 0.;
- 
                 if (i == j)
                     E[i][j] = 1.;
             }
 
+        forward(A, E, n);
+        backward(A, E, n);
+    }
+
+    private static void forward(double[][] A, double[][] E, int n)
+    {
+        double temp;
         for (int k=0; k<n; k++)
         {
             temp = A[k][k];
@@ -42,7 +48,11 @@ public class Lab7
                 }
             }
         }
+    }
 
+    private static void backward(double[][] A, double[][] E, int n)
+    {
+        double temp;
         for (int k=n-1; k>0; k--)
         {
             for (int i=k-1; i>=0; i--)
@@ -83,7 +93,7 @@ public class Lab7
             System.exit(-1);
         }
 
-        inversion(A, n);
+        inversion(A);
 
         for (int i=0; i<n; i++)
         {
