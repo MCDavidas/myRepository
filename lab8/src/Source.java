@@ -1,7 +1,7 @@
 import java.util.*;
 import tree.*;
 
-public class Lab8
+public class Source
 {
     public static void main(String[] args)
     {

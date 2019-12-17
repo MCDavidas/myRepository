@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 import java.lang.Math.*;
 
-public class Lab7
+public class Source
 {
     public static void inversion(double[][] A)
     {
@@ -27,7 +27,7 @@ public class Lab7
         for (int k=0; k<n; k++)
         {
             temp = A[k][k];
- 
+
             if (Math.abs(temp) < 0.00000001)
                 throw new ArithmeticException("Determinate is zero.");
 
@@ -36,11 +36,11 @@ public class Lab7
                 A[k][j] /= temp;
                 E[k][j] /= temp;
             }
- 
+
             for (int i=k+1; i<n; i++)
             {
                 temp = A[i][k];
- 
+
                 for (int j=0; j<n; j++)
                 {
                     A[i][j] -= A[k][j] * temp;
@@ -58,7 +58,7 @@ public class Lab7
             for (int i=k-1; i>=0; i--)
             {
                 temp = A[i][k];
- 
+
                 for (int j=0; j<n; j++)
                 {
                     A[i][j] -= A[k][j] * temp;

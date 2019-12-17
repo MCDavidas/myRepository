@@ -1,10 +1,5 @@
-Liner progression: 
- firstElem = 1.0
- p = 0.5
- sum = 7.0
- 1.0 1.5 2.0 2.5 
 Exponential progression: 
- firstElem = 1.0
+ firstElem = 3.0
  q = 2.0
- sum = 15.0
- 1.0 2.0 4.0 8.0 
+ sum = 93.0
+ 3.000 6.000 12.000 24.000 48.000 
