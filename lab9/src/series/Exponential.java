@@ -3,15 +3,8 @@ package series;
 import java.io.*;
 
 public class Exponential extends Series {
-    private double q;
-
     public Exponential(double x, double y, int n) {
-        super(x, n);
-        q = y;
-    }
-
-    public void setQ(double curr) {
-        q = curr;
+        super(x, y, n);
     }
 
     public double getElem(int j) {

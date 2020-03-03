@@ -10,8 +10,7 @@ import java.nio.file.Paths;
 import series.*;
 
 public class MyFrame extends JFrame {
-    private Liner liner = new Liner(1, 1, 1);
-    private Exponential exponential = new Exponential(1, 1, 1);
+    private Series series = new Liner(0, 0,0);
 
     private JRadioButton radioLiner = new JRadioButton("Liner");
     private JRadioButton radioExponential = new JRadioButton("Exponential");
@@ -27,7 +26,6 @@ public class MyFrame extends JFrame {
         int screenWidth = screenSize.width;
 
         setSize(screenWidth / 3, screenHeight / 3);
-        setLocationByPlatform(true);
 
         Container container = this.getContentPane();
         container.setLayout(new GridLayout(5, 3 ));
@@ -61,23 +59,20 @@ public class MyFrame extends JFrame {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
             try {
+                if (radioLiner.isSelected()) {
+                    series = new Liner(0, 0,0);
+                }
+                else {
+                    series = new Exponential(0, 0, 0);
+                }
+
                 double x = Double.parseDouble(text[0].getText());
                 double y = Double.parseDouble(text[1].getText());
                 int n = Integer.parseInt(text[2].getText());
 
-                Series series;
-                if (radioLiner.isSelected()) {
-                    liner.setFirstElem(x);
-                    liner.setP(y);
-                    liner.setN(n);
-                    series = liner;
-                }
-                else {
-                    exponential.setFirstElem(x);
-                    exponential.setQ(y);
-                    exponential.setN(n);
-                    series = exponential;
-                }
+                series.setFirstElem(x);
+                series.setQ(y);
+                series.setN(n);
 
                 try {
                     PrintWriter out = new PrintWriter(fileField.getText());

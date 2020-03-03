@@ -5,10 +5,16 @@ import java.io.*;
 public abstract class Series {
     protected double firstElem;
     protected int n;
+    protected double q;
 
-    public Series(double x, int count) {
-        firstElem = x;
-        n = count;
+    public Series(double firstElem, double q, int n) {
+        this.firstElem = firstElem;
+        this.q = q;
+        this.n = n;
+    }
+
+    public void setQ(double curr) {
+        q = curr;
     }
 
     public void setFirstElem(double curr) {

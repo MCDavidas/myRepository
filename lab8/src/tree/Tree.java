@@ -56,10 +56,7 @@ public class Tree<T extends Comparable<T>>
 
     public boolean find(T curr)
     {
-        if (this.findNode(curr) == null)
-            return false;
-
-        return true;
+        return this.findNode(curr) != null;
     }
 
     private Node findNode(T curr)
@@ -87,7 +84,7 @@ public class Tree<T extends Comparable<T>>
         if (v == null)
             return;
 
-        System.out.print(v.value + " ");
+        System.out.print(v.value.toString() + " ");
         rootLeftRight(v.left);
         rootLeftRight(v.right);
     }
@@ -104,7 +101,7 @@ public class Tree<T extends Comparable<T>>
 
         leftRightRoot(v.left);
         leftRightRoot(v.right);
-        System.out.print(v.value + " ");
+        System.out.print(v.value.toString() + " ");
     }
 
     public void leftRootRight()
@@ -118,7 +115,7 @@ public class Tree<T extends Comparable<T>>
             return;
 
         leftRootRight(v.left);
-        System.out.print(v.value + " ");
+        System.out.print(v.value.toString() + " ");
         leftRootRight(v.right);
     }
 }

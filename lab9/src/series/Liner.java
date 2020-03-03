@@ -3,25 +3,18 @@ package series;
 import java.io.*;
 
 public class Liner extends Series {
-    private double p;
-
     public Liner(double x, double y, int n) {
-        super(x, n);
-        p = y;
-    }
-
-    public void setP(double curr) {
-        p = curr;
+        super(x, y, n);
     }
 
     public double getElem(int j) {
-        return firstElem + p*j;
+        return firstElem + q*j;
     }
 
     public void save(PrintWriter out) {
         out.println("Liner progression: ");
         out.println(" firstElem = " + String.valueOf(firstElem));
-        out.println(" p = " + String.valueOf(p));
+        out.println(" p = " + String.valueOf(q));
         out.println(" sum = " + this.getSum());
         out.print(' ');
         super.save(out);

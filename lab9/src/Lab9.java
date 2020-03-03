@@ -9,6 +9,7 @@ public class Lab9 {
                 JFrame frame = new MyFrame();
                 frame.setTitle("MyFrame");
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setResizable(false);
                 frame.setVisible(true);
             }
         });
